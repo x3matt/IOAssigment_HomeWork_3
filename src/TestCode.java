@@ -13,7 +13,6 @@ public class TestCode {
 		List<Person> res= Arrays.asList(
 				new Person("Ivan","Ivanov",18)
 				,new Person("Piotr","Andreew",20)
-				,new Person("Anna","Karenina",10)
 				);
 		assertEquals(res, Main.makeListAndSortByAge("Persons.csv"));
 	}

@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +16,7 @@ public class Main {
 				.map(s -> s.split(","))
 				.filter(a -> Integer.parseInt(a[2].trim()) >17)
 				.map(p -> new Person(p[0].trim(),p[1].trim(),Integer.parseInt(p[2].trim())))
+				.sorted(Comparator.comparing(Person::getAge))
 				.collect(Collectors.toList());
 	}
 }

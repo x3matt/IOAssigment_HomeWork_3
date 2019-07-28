@@ -14,9 +14,18 @@ public class Main {
 		return br
 				.lines()
 				.map(s -> s.split(","))
-				.filter(a -> Integer.parseInt(a[2].trim()) >17)
-				.map(p -> new Person(p[0].trim(),p[1].trim(),Integer.parseInt(p[2].trim())))
+				.filter(a -> checker(a))
+				.map(p -> personMaker(p))
 				.sorted(Comparator.comparing(Person::getAge))
 				.collect(Collectors.toList());
+	}
+	private static boolean checker(String[] str) {
+		return parser(str[2])>17;
+	}
+	private static Integer parser(String str) {
+		return Integer.parseInt(str.trim());
+	}
+	private static Person personMaker(String[] str) {
+		return new Person(str[0].trim(),str[1].trim(),parser(str[2].trim()));
 	}
 }
